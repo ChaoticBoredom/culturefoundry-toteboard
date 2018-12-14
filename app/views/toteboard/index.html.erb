@@ -1,2 +1,9 @@
-<h1>Toteboard#index</h1>
-<p>Find me in app/views/toteboard/index.html.erb</p>
+<ul class="nav flex-column">
+  <% @races.each do |race| %>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><%= race["Date"] %></a>
+    </li>
+  <% end %>
+</ul>
+
+    
