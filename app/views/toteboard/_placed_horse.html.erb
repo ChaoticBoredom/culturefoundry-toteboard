@@ -1,0 +1,15 @@
+<% entry = horse_placed(place) %>
+<div class="row">
+  <div class="col">
+    <%= horse_display(entry) %>
+  </div>
+  <div class="col">
+    <%= number_to_currency(entry.fetch("WinPayoff", nil)) %>
+  </div>
+  <div class="col">
+    <%= number_to_currency(entry.fetch("PlacePayoff", nil)) %>
+  </div>
+  <div class="col">
+    <%= number_to_currency(entry.fetch("ShowPayoff", nil)) %>
+  </div>
+</div>

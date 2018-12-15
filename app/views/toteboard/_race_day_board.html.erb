@@ -18,66 +18,27 @@
     <div class="row">
       <div class="col"/>
       <div class="col">
-        First Place
+        Win
       </div>
       <div class="col">
-        Second Place
+        Place
       </div>
       <div class="col">
-        Third Place
+        Show
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <%= horse_placed(1).dig("Horse", "Name") %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(1).fetch("WinPayoff", 0)) %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(1).fetch("PlacePayoff", 0)) %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(1).fetch("ShowPayoff", 0)) %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <%= horse_placed(2).dig("Horse", "Name") %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(2).fetch("WinPayoff", 0)) %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(2).fetch("PlacePayoff", 0)) %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(2).fetch("ShowPayoff", 0)) %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <%= horse_placed(3).dig("Horse", "Name") %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(3).fetch("WinPayoff", 0)) %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(3).fetch("PlacePayoff", 0)) %>
-      </div>
-      <div class="col">
-        <%= number_to_currency(horse_placed(3).fetch("ShowPayoff", 0)) %>
-      </div>
-    </div>
+    <%= render :partial => "placed_horse", :locals => {:place => 1} %>
+    <%= render :partial => "placed_horse", :locals => {:place => 2} %>
+    <%= render :partial => "placed_horse", :locals => {:place => 3} %>
     <div class="row" />
     <div class="row">
       <div class="col">
-        Also ran: <%= also_ran_horses.map { |x| x.dig("Horse", "Name") }.join(", ") %>
+        Also ran: <%= also_ran_horses.map { |x| horse_display(x) }.join(", ") %>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        Scratched: <%= scratched_horses.map { |x| x.dig("Horse", "Name") }.join(", ") %>
+        Scratched: <%= scratched_horses.map { |x| horse_display(x) }.join(", ") %>
       </div>
     </div>
   </div>

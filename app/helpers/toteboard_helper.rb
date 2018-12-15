@@ -37,6 +37,10 @@ module ToteboardHelper
       select { |x| scratched(x) }
   end
 
+  def horse_display(entry)
+    entry.dig("Horse", "Name")
+  end
+
   private
 
   def scratched(entry)
