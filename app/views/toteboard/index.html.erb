@@ -1,23 +1,7 @@
-<%= button_tag(
+<%= dropdown_helper(
   "Race Days",
-  {
-    :id => "raceDayList",
-    :type => "button",
-    :class => "btn btn-secondary dropdown-toggle",
-    "data-toggle" => "dropdown",
-    "aria-haspopup" => "true",
-    "aria-expanded" => "false",
-  }
-) %>
-<div class="dropdown-menu" aria-labelledby="raceDayList">
-  <% @races.each do |race| %>
-    <%= link_to(
-      race["Date"],
-      toteboard_race_day_path(:race_day => race["Date"], :race_num => 1),
-      :remote => true,
-      :class => "dropdown-item") %>
-  <% end %>
-</div>
+  race_day_list_collection,
+  {:id => "raceDayList"}) %>
 
 <div id="js-raceDayBoard">
   <%= render :partial => "race_day_board", :locals => {:race => @race} %>

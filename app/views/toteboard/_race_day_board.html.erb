@@ -1,3 +1,19 @@
 <% if @race %>
-  <%= @race %>
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col">
+        <%= dropdown_helper("Race Number", race_list_collection, {:id => "raceList"}) %>
+      </div>
+      <div class="col">
+        Race Date: <%= @race["Date"] %>
+        Surface: <%= @race["Surface"] %>
+        Condition: <%= @race["TrackCondition"] %> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Race <%= @race["Number"] %>
+      </div>
+    </div>
+  </div>
 <% end %>
