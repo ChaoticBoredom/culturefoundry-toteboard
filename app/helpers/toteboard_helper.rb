@@ -20,4 +20,32 @@ module ToteboardHelper
       }
     end
   end
+
+  def horse_placed(place)
+    @race.fetch("Entries", []).select { |x| x["FinishPosition"] == place }.first
+  end
+
+  def also_ran_horses
+    @race.
+      fetch("Entries", []).
+      select { |x| also_ran(x) }
+  end
+
+  def scratched_horses
+    @race.
+      fetch("Entries", []).
+      select { |x| scratched(x) }
+  end
+
+  private
+
+  def scratched(entry)
+    entry.fetch("Scratched", false)
+  end
+
+  def also_ran(entry)
+    return false if scratched(entry)
+
+    return false if [1, 2, 3].include?(entry.fetch("FinishPosition", 0))
+  end
 end
