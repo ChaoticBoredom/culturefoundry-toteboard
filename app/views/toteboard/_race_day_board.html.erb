@@ -27,9 +27,12 @@
         Show
       </div>
     </div>
-    <%= render :partial => "placed_horse", :locals => {:place => 1} %>
-    <%= render :partial => "placed_horse", :locals => {:place => 2} %>
-    <%= render :partial => "placed_horse", :locals => {:place => 3} %>
+    <% (1..3).each do |place| %>
+      <%= render :partial => "placed_horse", :locals => {
+        :place => place,
+        :classes => place.odd? ? ["bg-light"] : []
+      } %>
+    <% end %>
     <div class="row" />
     <div class="row">
       <div class="col">

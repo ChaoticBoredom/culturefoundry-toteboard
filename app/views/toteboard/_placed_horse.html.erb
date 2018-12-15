@@ -1,5 +1,6 @@
 <% entry = horse_placed(place) %>
-<div class="row">
+<% classes ||= [] %>
+<div class="<%= (["row"] + classes).join(" ") %>">
   <div class="col">
     <%= horse_display(entry) %>
   </div>
