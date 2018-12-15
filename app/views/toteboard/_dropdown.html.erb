@@ -1,0 +1,10 @@
+<li class="nav-item dropdown" id="<%= id %>">
+  <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= name %>
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <% collection.each do |obj| %>
+      <%= link_to(obj[:title], obj[:link], :remote => true, :class => "dropdown-item") %>
+    <% end %>
+  </div>
+</li>

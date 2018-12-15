@@ -1,2 +1,3 @@
-// Make sure we manually close the dropdown...
+// Re-render the main board, and the race list dropdown
+$("#js-raceList").html("<%= escape_javascript(render :partial => "dropdown", :locals => {:name => "Race Number", :id => "js-raceList", :collection => race_list_collection} ) %>");
 $("#js-raceDayBoard").html("<%= escape_javascript(render :partial => 'race_day_board', :locals => { :race => @race } ) %>"); 

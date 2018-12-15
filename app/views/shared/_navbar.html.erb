@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Horse Races</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <%= render :partial => "dropdown", :locals => {:name => "Race Days", :id => "raceDayList", :collection => race_day_list_collection} %>
+      <%= render :partial => "dropdown", :locals => {:name => "Race Number", :id => "js-raceList", :collection => race_list_collection} %>
+    </ul>
+  </div>
+</nav>
