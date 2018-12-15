@@ -38,7 +38,9 @@ module ToteboardHelper
   end
 
   def horse_display(entry)
-    entry.dig("Horse", "Name")
+    horse_number = entry.dig("ProgramNumber")
+    horse_name = entry.dig("Horse", "Name")
+    "#{horse_number} - #{horse_name}"
   end
 
   private
@@ -51,5 +53,7 @@ module ToteboardHelper
     return false if scratched(entry)
 
     return false if [1, 2, 3].include?(entry.fetch("FinishPosition", 0))
+
+    true
   end
 end
