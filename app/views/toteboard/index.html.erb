@@ -11,9 +11,14 @@
 ) %>
 <div class="dropdown-menu" aria-labelledby="raceDayList">
   <% @races.each do |race| %>
-    <a class="dropdown-item" href="#"><%= race["Date"] %></a>
+    <%= link_to(
+      race["Date"],
+      toteboard_race_day_path(:race_day => race["Date"], :race_num => 1),
+      :remote => true,
+      :class => "dropdown-item") %>
   <% end %>
 </div>
-<div>
-  Hello
+
+<div id="js-raceDayBoard">
+  <%= render :partial => "race_day_board", :locals => {:race => @race} %>
 </div>
