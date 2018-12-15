@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+/config/environments/*.override.rb
 
 /node_modules
 /yarn-error.log

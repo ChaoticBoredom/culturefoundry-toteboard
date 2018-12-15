@@ -26,5 +26,16 @@ module CulturefoundryToteboard
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.x.api_prefix = ENV["API_PREFIX"]
+
+    override = File.join(
+      Rails.root,
+      "config",
+      "environments",
+      "#{Rails.env}.override.rb"
+    )
+    if File.exist? override
+      require override
+    end
   end
 end
